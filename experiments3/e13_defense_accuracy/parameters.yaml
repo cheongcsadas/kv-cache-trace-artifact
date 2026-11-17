@@ -1,0 +1,24 @@
+experiment: e13_defense_accuracy
+paper_section: '6.3'
+systems:
+- quest
+- infinigen
+- retrievalattention
+defenses:
+- none
+- fixed_budget
+- dynamic_timing
+setting: templated_short
+channel: meta
+attack: MAA
+train_per_domain: 3000
+test_per_domain: 1000
+block_tokens: 16
+residency_fraction: 0.2
+fixed_budget_pages: 65
+maximum_delay_ms: 5
+attacker_settings:
+- none
+- aware
+- oblivious
+output: table8

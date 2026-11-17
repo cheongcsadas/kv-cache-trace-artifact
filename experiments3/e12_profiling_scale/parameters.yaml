@@ -1,0 +1,26 @@
+experiment: e12_profiling_scale
+paper_section: 5.6.1
+systems:
+- quest
+- infinigen
+- retrievalattention
+attacks:
+- MAA
+- MSA
+- SAA
+- SSA
+settings:
+- templated_short
+- templated_long
+train_per_domain:
+- 400
+- 800
+- 1600
+- 3200
+test_per_domain: 1000
+fixed_test_set: true
+window_ms: 10
+max_windows: 512
+random_forest:
+  n_estimators: 100
+  max_depth: 10
