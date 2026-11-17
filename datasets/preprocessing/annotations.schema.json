@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Semantic annotation map keyed by normalized corpus record ID",
+  "type": "object",
+  "minProperties": 1,
+  "propertyNames": {"type": "string", "minLength": 1},
+  "additionalProperties": {
+    "type": "object",
+    "required": ["intent", "attribute", "keyword"],
+    "additionalProperties": false,
+    "properties": {
+      "intent": {"type": "string", "pattern": "\\S"},
+      "attribute": {"type": "string", "pattern": "\\S"},
+      "keyword": {"type": "string", "pattern": "\\S"}
+    }
+  }
+}

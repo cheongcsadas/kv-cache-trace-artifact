@@ -1,0 +1,69 @@
+# Paper: Sections 5.1, 6; Appendices D and E.
+system: quest
+model:
+  id: meta-llama/Llama-2-7b-hf
+  revision: null  # Set the model checkpoint revision.
+backend:
+  repository: https://github.com/mit-han-lab/Quest
+  revision: 01c1623bf9395009520874e989e29f683203b357
+  runtime_module: backends.quest.runtime
+cache:
+  block_tokens: 16
+  residency_fraction: 0.20
+  initial_state: empty
+  capacity_slots: null  # Use the actual backend pool; never infer physical slots from batch count.
+  selected_token_budget: null  # Fix this value across block-size sweeps.
+inference:
+  generation_tokens: null  # Set the output generation length.
+  dtype: float16
+  sampling: {do_sample: false}
+data:
+  domains: [medical, financial, legal, code]
+  train_per_domain: 3000
+  test_per_domain: 1000
+  train_fraction: 0.75
+  short_mean_tokens: 1000
+  long_mean_tokens: 3000
+  settings: [templated_short, templated_long, unstructured_short, unstructured_long, cross_template]
+  intent_classes_per_domain: 3
+  attribute_classes_per_domain: 60
+  keyword_classes_per_domain: 60
+observation:
+  window_ms: 10
+  max_windows: 512
+  h2d_bytes: 1024
+  probe_interval_ms: 1
+  reference_repetitions: 3
+  h2d_threshold_us: 200
+  consecutive_samples: 3
+  compute_shape: [256, 256]
+  compute_dtype: float16
+  probe_pages: 64
+  probe_page_bytes: 2097152
+  idle_gap_ms: 20
+  empirical_fpr: 0.05
+  submission_error_max_ms: 1
+classifier:
+  n_estimators: 100
+  max_depth: 10
+defenses:
+  fixed_budget:
+    load_pages: 65
+    block_tokens: 16
+  dynamic_timing:
+    max_delay_ms: 5
+evaluation:
+  reference_merge_gap_ms: 50
+  metadata_time_tolerance_ms: null  # Fix the matching tolerance before evaluation.
+  localization_failures_in_denominator: true
+sweeps:
+  residency_fraction: [0.2, 0.4, 0.6]
+  block_tokens: [8, 16, 32]
+  context_tokens: [1000, 2000, 3000, 4000]
+  concurrent_workloads: [1, 4, 8, 16]
+  training_per_domain: [400, 800, 1600, 3200]
+implementation_choices:
+  seed: 42  # Reproducibility choice, not a reported paper seed.
+  metadata_spatial_bins: 32  # Configurable metadata spatial representation.
+  model_identifier_note: "Model family from paper; exact checkpoint revision must be supplied."
+

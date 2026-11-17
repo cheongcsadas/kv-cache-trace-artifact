@@ -1,0 +1,2626 @@
+schema_version: 1
+method: rule_derived_single_label
+description: Source-text semantic targets with exactly 3 intent, 60 sensitive-attribute and 60 single-keyword classes
+  per domain. Attribute labels describe the health, financial, contractual or computational property exposed by
+  a grounded keyword. Aliases and original character spans provide auditable evidence. The declared vocabulary is
+  fixed; observed corpus coverage is validated separately before training.
+domains:
+  medical:
+    intent:
+    - label: condition_information
+      description: Ask about a condition, its causes, manifestations or diagnosis.
+      priority: 10
+      aliases:
+      - what is
+      - what are
+      - causes
+      - cause
+      - symptoms
+      - symptom
+      - diagnosis
+      - diagnose
+      - diagnosed
+      - screening
+      - signs
+      - affected
+      - common
+    - label: treatment_prevention
+      description: Ask about treatment, prevention or ongoing condition management.
+      priority: 30
+      aliases:
+      - treatment
+      - treatments
+      - treated
+      - treat
+      - prevention
+      - prevent
+      - prevented
+      - management
+      - manage
+      - managing
+      - cure
+      - cured
+      - therapy
+      - therapies
+    - label: prognosis_inheritance
+      description: Ask about outcome, prognosis, survival or inheritance.
+      priority: 40
+      aliases:
+      - prognosis
+      - outlook
+      - survival
+      - inherited
+      - inheritance
+      - hereditary
+      - expectancy
+      - long-term effects
+    attribute:
+    - label: glucose_homeostasis
+      description: Glucose homeostasis; the source explicitly discusses diabetes mellitus.
+      evidence_keywords:
+      - diabetes_mellitus
+    - label: thyroid_hormone_deficiency
+      description: Thyroid hormone deficiency; the source explicitly discusses underactive thyroid.
+      evidence_keywords:
+      - hypothyroidism
+    - label: thyroid_hormone_excess
+      description: Thyroid hormone excess; the source explicitly discusses overactive thyroid.
+      evidence_keywords:
+      - hyperthyroidism
+    - label: excess_adiposity
+      description: Excess adiposity; the source explicitly discusses obesity.
+      evidence_keywords:
+      - obesity
+    - label: elevated_arterial_pressure
+      description: Elevated arterial pressure; the source explicitly discusses high blood pressure.
+      evidence_keywords:
+      - hypertension
+    - label: impaired_cardiac_pumping
+      description: Impaired cardiac pumping; the source explicitly discusses heart failure.
+      evidence_keywords:
+      - heart_failure
+    - label: coronary_perfusion_disorder
+      description: Coronary perfusion disorder; the source explicitly discusses coronary artery disease.
+      evidence_keywords:
+      - coronary_artery_disease
+    - label: atrial_rhythm_disorder
+      description: Atrial rhythm disorder; the source explicitly discusses atrial fibrillation.
+      evidence_keywords:
+      - atrial_fibrillation
+    - label: reversible_airway_obstruction
+      description: Reversible airway obstruction; the source explicitly discusses asthma.
+      evidence_keywords:
+      - asthma
+    - label: persistent_airflow_limitation
+      description: Persistent airflow limitation; the source explicitly discusses copd.
+      evidence_keywords:
+      - chronic_obstructive_pulmonary_disease
+    - label: pulmonary_inflammation
+      description: Pulmonary inflammation; the source explicitly discusses pneumonia, including noninfectious organizing forms.
+      evidence_keywords:
+      - pneumonia
+    - label: sleep_related_breathing_disorder
+      description: Sleep related breathing disorder; the source explicitly discusses sleep apnea.
+      evidence_keywords:
+      - sleep_apnea
+    - label: recurrent_seizure_disorder
+      description: Recurrent seizure disorder; the source explicitly discusses epilepsy.
+      evidence_keywords:
+      - epilepsy
+    - label: episodic_neurovascular_headache
+      description: Episodic neurovascular headache; the source explicitly discusses migraine.
+      evidence_keywords:
+      - migraine
+    - label: motor_neurodegeneration
+      description: Motor neurodegeneration; the source explicitly discusses parkinson disease.
+      evidence_keywords:
+      - parkinson_disease
+    - label: progressive_cognitive_decline
+      description: Progressive cognitive decline; the source explicitly discusses alzheimer disease.
+      evidence_keywords:
+      - alzheimer_disease
+    - label: central_demyelination
+      description: Central demyelination; the source explicitly discusses multiple sclerosis.
+      evidence_keywords:
+      - multiple_sclerosis
+    - label: persistent_low_mood
+      description: Persistent low mood; the source explicitly discusses depressive disorders.
+      evidence_keywords:
+      - depression
+    - label: episodic_mood_polarity
+      description: Episodic mood polarity; the source explicitly discusses bipolar disorder.
+      evidence_keywords:
+      - bipolar_disorder
+    - label: psychotic_thought_disorder
+      description: Psychotic thought disorder; the source explicitly discusses schizophrenia.
+      evidence_keywords:
+      - schizophrenia
+    - label: pathological_anxiety
+      description: Pathological anxiety; the source explicitly discusses anxiety disorders.
+      evidence_keywords:
+      - anxiety_disorder
+    - label: gluten_triggered_enteropathy
+      description: Gluten triggered enteropathy; the source explicitly discusses celiac disease.
+      evidence_keywords:
+      - celiac_disease
+    - label: transmural_intestinal_inflammation
+      description: Transmural intestinal inflammation; the source explicitly discusses crohn disease.
+      evidence_keywords:
+      - crohn_disease
+    - label: colonic_mucosal_inflammation
+      description: Colonic mucosal inflammation; the source explicitly discusses ulcerative colitis.
+      evidence_keywords:
+      - ulcerative_colitis
+    - label: acid_reflux_injury
+      description: Acid reflux injury; the source explicitly discusses gastroesophageal reflux disease.
+      evidence_keywords:
+      - gastroesophageal_reflux
+    - label: progressive_renal_impairment
+      description: Progressive renal impairment; the source explicitly discusses chronic kidney disease.
+      evidence_keywords:
+      - chronic_kidney_disease
+    - label: urinary_crystal_deposition
+      description: Urinary crystal deposition; the source explicitly discusses kidney stones.
+      evidence_keywords:
+      - kidney_stones
+    - label: urinary_bacterial_infection
+      description: Urinary bacterial infection; the source explicitly discusses urinary tract infection.
+      evidence_keywords:
+      - urinary_tract_infection
+    - label: degenerative_joint_damage
+      description: Degenerative joint damage; the source explicitly discusses osteoarthritis.
+      evidence_keywords:
+      - osteoarthritis
+    - label: reduced_bone_density
+      description: Reduced bone density; the source explicitly discusses osteoporosis.
+      evidence_keywords:
+      - osteoporosis
+    - label: autoimmune_joint_inflammation
+      description: Autoimmune joint inflammation; the source explicitly discusses rheumatoid arthritis.
+      evidence_keywords:
+      - rheumatoid_arthritis
+    - label: systemic_autoimmune_involvement
+      description: Systemic autoimmune involvement; the source explicitly discusses systemic lupus erythematosus.
+      evidence_keywords:
+      - lupus
+    - label: immune_mediated_scaling_skin_disease
+      description: Immune mediated scaling skin disease; the source explicitly discusses psoriasis.
+      evidence_keywords:
+      - psoriasis
+    - label: atopic_skin_inflammation
+      description: Atopic skin inflammation; the source explicitly discusses eczema and atopic dermatitis.
+      evidence_keywords:
+      - eczema
+    - label: seasonal_respiratory_viral_infection
+      description: Seasonal respiratory viral infection; the source explicitly discusses influenza.
+      evidence_keywords:
+      - influenza
+    - label: mycobacterial_infection
+      description: Mycobacterial infection; the source explicitly discusses tuberculosis.
+      evidence_keywords:
+      - tuberculosis
+    - label: retroviral_immune_impairment
+      description: Retroviral immune impairment; the source explicitly discusses hiv infection.
+      evidence_keywords:
+      - hiv_infection
+    - label: hepatitis_b_viral_liver_inflammation
+      description: Hepatitis b viral liver inflammation; the source explicitly discusses hepatitis b.
+      evidence_keywords:
+      - hepatitis_b
+    - label: hepatitis_c_viral_liver_inflammation
+      description: Hepatitis c viral liver inflammation; the source explicitly discusses hepatitis c.
+      evidence_keywords:
+      - hepatitis_c
+    - label: reduced_oxygen_carrying_capacity
+      description: Reduced oxygen carrying capacity; the source explicitly discusses anemia.
+      evidence_keywords:
+      - anemia
+    - label: inherited_erythrocyte_sickling
+      description: Inherited erythrocyte sickling; the source explicitly discusses sickle cell disease.
+      evidence_keywords:
+      - sickle_cell_disease
+    - label: impaired_coagulation_factor_function
+      description: Coagulation factor dysfunction; the source explicitly discusses inherited or acquired hemophilia.
+      evidence_keywords:
+      - hemophilia
+    - label: breast_malignancy
+      description: Breast malignancy; the source explicitly discusses breast cancer.
+      evidence_keywords:
+      - breast_cancer
+    - label: pulmonary_malignancy
+      description: Pulmonary malignancy; the source explicitly discusses lung cancer.
+      evidence_keywords:
+      - lung_cancer
+    - label: prostatic_malignancy
+      description: Prostatic malignancy; the source explicitly discusses prostate cancer.
+      evidence_keywords:
+      - prostate_cancer
+    - label: colorectal_malignancy
+      description: Colorectal malignancy; the source explicitly discusses colorectal cancer.
+      evidence_keywords:
+      - colorectal_cancer
+    - label: blood_forming_tissue_malignancy
+      description: Blood forming tissue malignancy; the source explicitly discusses leukemia.
+      evidence_keywords:
+      - leukemia
+    - label: melanocytic_malignancy
+      description: Melanocytic malignancy; the source explicitly discusses melanoma.
+      evidence_keywords:
+      - melanoma
+    - label: optic_nerve_damage
+      description: Optic nerve damage; the source explicitly discusses glaucoma.
+      evidence_keywords:
+      - glaucoma
+    - label: lens_opacity
+      description: Lens opacity; the source explicitly discusses cataract.
+      evidence_keywords:
+      - cataract
+    - label: central_retinal_degeneration
+      description: Central retinal degeneration; the source explicitly discusses macular degeneration.
+      evidence_keywords:
+      - macular_degeneration
+    - label: auditory_impairment
+      description: Auditory impairment; the source explicitly discusses hearing loss.
+      evidence_keywords:
+      - hearing_loss
+    - label: ectopic_endometrial_tissue
+      description: Ectopic endometrial tissue; the source explicitly discusses endometriosis.
+      evidence_keywords:
+      - endometriosis
+    - label: ovarian_endocrine_dysfunction
+      description: Ovarian endocrine dysfunction; the source explicitly discusses polycystic ovary syndrome.
+      evidence_keywords:
+      - polycystic_ovary_syndrome
+    - label: impaired_reproductive_capacity
+      description: Impaired reproductive capacity; the source explicitly discusses infertility.
+      evidence_keywords:
+      - infertility
+    - label: urate_crystal_arthritis
+      description: Urate crystal arthritis; the source explicitly discusses gout.
+      evidence_keywords:
+      - gout
+    - label: inherited_muscle_degeneration
+      description: Inherited muscle degeneration; the source explicitly discusses muscular dystrophy.
+      evidence_keywords:
+      - muscular_dystrophy
+    - label: inherited_epithelial_ion_transport_disorder
+      description: Inherited epithelial ion transport disorder; the source explicitly discusses cystic fibrosis.
+      evidence_keywords:
+      - cystic_fibrosis
+    - label: meningeal_inflammation
+      description: Meningeal inflammation; the source explicitly discusses meningitis.
+      evidence_keywords:
+      - meningitis
+    - label: depleted_body_iron
+      description: Depleted body iron; the source explicitly discusses iron deficiency.
+      evidence_keywords:
+      - iron_deficiency
+    keyword:
+    - label: diabetes_mellitus
+      description: Diabetes mellitus
+      attribute: glucose_homeostasis
+      excluded_request_aliases:
+      - diabetes insipidus
+      aliases:
+      - diabetes mellitus
+      - type 1 diabetes
+      - type 2 diabetes
+      - type I diabetes
+      - type II diabetes
+      - gestational diabetes mellitus
+    - label: hypothyroidism
+      description: Underactive thyroid
+      attribute: thyroid_hormone_deficiency
+      aliases:
+      - hypothyroidism
+      - underactive thyroid
+    - label: hyperthyroidism
+      description: Overactive thyroid
+      attribute: thyroid_hormone_excess
+      aliases:
+      - hyperthyroidism
+      - overactive thyroid
+    - label: obesity
+      description: Obesity
+      attribute: excess_adiposity
+      aliases:
+      - obesity
+      - obese
+    - label: hypertension
+      description: High blood pressure
+      attribute: elevated_arterial_pressure
+      aliases:
+      - high blood pressure
+      - arterial hypertension
+      - systemic hypertension
+      - essential hypertension
+      - primary hypertension
+      - secondary hypertension
+      - renovascular hypertension
+    - label: heart_failure
+      description: Heart failure
+      attribute: impaired_cardiac_pumping
+      aliases:
+      - heart failure
+      - congestive heart failure
+    - label: coronary_artery_disease
+      description: Coronary artery disease
+      attribute: coronary_perfusion_disorder
+      aliases:
+      - coronary artery disease
+      - coronary heart disease
+    - label: atrial_fibrillation
+      description: Atrial fibrillation
+      attribute: atrial_rhythm_disorder
+      aliases:
+      - atrial fibrillation
+    - label: asthma
+      description: Asthma
+      attribute: reversible_airway_obstruction
+      aliases:
+      - asthma
+      - asthmatic
+    - label: chronic_obstructive_pulmonary_disease
+      description: COPD
+      attribute: persistent_airflow_limitation
+      aliases:
+      - chronic obstructive pulmonary disease
+      - COPD
+    - label: pneumonia
+      description: Pneumonia
+      attribute: pulmonary_inflammation
+      aliases:
+      - pneumonia
+    - label: sleep_apnea
+      description: Sleep apnea
+      attribute: sleep_related_breathing_disorder
+      aliases:
+      - sleep apnea
+      - sleep apnoea
+    - label: epilepsy
+      description: Epilepsy
+      attribute: recurrent_seizure_disorder
+      aliases:
+      - epilepsy
+    - label: migraine
+      description: Migraine
+      attribute: episodic_neurovascular_headache
+      aliases:
+      - migraine
+      - migraines
+    - label: parkinson_disease
+      description: Parkinson disease
+      attribute: motor_neurodegeneration
+      aliases:
+      - Parkinson disease
+      - Parkinson's disease
+    - label: alzheimer_disease
+      description: Alzheimer disease
+      attribute: progressive_cognitive_decline
+      aliases:
+      - Alzheimer disease
+      - Alzheimer's disease
+    - label: multiple_sclerosis
+      description: Multiple sclerosis
+      attribute: central_demyelination
+      aliases:
+      - multiple sclerosis
+    - label: depression
+      description: Depressive disorders
+      attribute: persistent_low_mood
+      aliases:
+      - depression
+      - major depressive disorder
+    - label: bipolar_disorder
+      description: Bipolar disorder
+      attribute: episodic_mood_polarity
+      aliases:
+      - bipolar disorder
+    - label: schizophrenia
+      description: Schizophrenia
+      attribute: psychotic_thought_disorder
+      aliases:
+      - schizophrenia
+    - label: anxiety_disorder
+      description: Anxiety disorders
+      attribute: pathological_anxiety
+      aliases:
+      - anxiety disorder
+      - anxiety disorders
+      - generalized anxiety
+    - label: celiac_disease
+      description: Celiac disease
+      attribute: gluten_triggered_enteropathy
+      aliases:
+      - celiac disease
+      - coeliac disease
+    - label: crohn_disease
+      description: Crohn disease
+      attribute: transmural_intestinal_inflammation
+      aliases:
+      - Crohn disease
+      - Crohn's disease
+    - label: ulcerative_colitis
+      description: Ulcerative colitis
+      attribute: colonic_mucosal_inflammation
+      aliases:
+      - ulcerative colitis
+    - label: gastroesophageal_reflux
+      description: Gastroesophageal reflux disease
+      attribute: acid_reflux_injury
+      aliases:
+      - gastroesophageal reflux
+      - GERD
+    - label: chronic_kidney_disease
+      description: Chronic kidney disease
+      attribute: progressive_renal_impairment
+      aliases:
+      - chronic kidney disease
+      - chronic renal disease
+    - label: kidney_stones
+      description: Kidney stones
+      attribute: urinary_crystal_deposition
+      aliases:
+      - kidney stone
+      - kidney stones
+      - nephrolithiasis
+    - label: urinary_tract_infection
+      description: Urinary tract infection
+      attribute: urinary_bacterial_infection
+      aliases:
+      - urinary tract infection
+      - urinary tract infections
+    - label: osteoarthritis
+      description: Osteoarthritis
+      attribute: degenerative_joint_damage
+      aliases:
+      - osteoarthritis
+    - label: osteoporosis
+      description: Osteoporosis
+      attribute: reduced_bone_density
+      aliases:
+      - osteoporosis
+    - label: rheumatoid_arthritis
+      description: Rheumatoid arthritis
+      attribute: autoimmune_joint_inflammation
+      aliases:
+      - rheumatoid arthritis
+    - label: lupus
+      description: Systemic lupus erythematosus
+      attribute: systemic_autoimmune_involvement
+      aliases:
+      - systemic lupus erythematosus
+    - label: psoriasis
+      description: Psoriasis
+      attribute: immune_mediated_scaling_skin_disease
+      aliases:
+      - psoriasis
+    - label: eczema
+      description: Eczema and atopic dermatitis
+      attribute: atopic_skin_inflammation
+      aliases:
+      - eczema
+      - atopic dermatitis
+    - label: influenza
+      description: Influenza
+      attribute: seasonal_respiratory_viral_infection
+      aliases:
+      - influenza
+    - label: tuberculosis
+      description: Tuberculosis
+      attribute: mycobacterial_infection
+      aliases:
+      - tuberculosis
+    - label: hiv_infection
+      description: HIV infection
+      attribute: retroviral_immune_impairment
+      aliases:
+      - HIV
+      - human immunodeficiency virus
+    - label: hepatitis_b
+      description: Hepatitis B
+      attribute: hepatitis_b_viral_liver_inflammation
+      aliases:
+      - hepatitis B
+    - label: hepatitis_c
+      description: Hepatitis C
+      attribute: hepatitis_c_viral_liver_inflammation
+      aliases:
+      - hepatitis C
+    - label: anemia
+      description: Anemia
+      attribute: reduced_oxygen_carrying_capacity
+      aliases:
+      - anemia
+      - anaemia
+    - label: sickle_cell_disease
+      description: Sickle cell disease
+      attribute: inherited_erythrocyte_sickling
+      aliases:
+      - sickle cell disease
+      - sickle cell anemia
+    - label: hemophilia
+      description: Hemophilia
+      attribute: impaired_coagulation_factor_function
+      aliases:
+      - hemophilia
+      - haemophilia
+    - label: breast_cancer
+      description: Breast cancer
+      attribute: breast_malignancy
+      aliases:
+      - breast cancer
+    - label: lung_cancer
+      description: Lung cancer
+      attribute: pulmonary_malignancy
+      aliases:
+      - lung cancer
+    - label: prostate_cancer
+      description: Prostate cancer
+      attribute: prostatic_malignancy
+      aliases:
+      - prostate cancer
+    - label: colorectal_cancer
+      description: Colorectal cancer
+      attribute: colorectal_malignancy
+      aliases:
+      - colorectal cancer
+      - colon cancer
+      - rectal cancer
+    - label: leukemia
+      description: Leukemia
+      attribute: blood_forming_tissue_malignancy
+      aliases:
+      - leukemia
+      - leukaemia
+    - label: melanoma
+      description: Melanoma
+      attribute: melanocytic_malignancy
+      aliases:
+      - melanoma
+    - label: glaucoma
+      description: Glaucoma
+      attribute: optic_nerve_damage
+      aliases:
+      - glaucoma
+    - label: cataract
+      description: Cataract
+      attribute: lens_opacity
+      aliases:
+      - cataract
+      - cataracts
+    - label: macular_degeneration
+      description: Macular degeneration
+      attribute: central_retinal_degeneration
+      aliases:
+      - macular degeneration
+    - label: hearing_loss
+      description: Hearing loss
+      attribute: auditory_impairment
+      aliases:
+      - hearing loss
+      - deafness
+    - label: endometriosis
+      description: Endometriosis
+      attribute: ectopic_endometrial_tissue
+      aliases:
+      - endometriosis
+    - label: polycystic_ovary_syndrome
+      description: Polycystic ovary syndrome
+      attribute: ovarian_endocrine_dysfunction
+      aliases:
+      - polycystic ovary syndrome
+      - PCOS
+    - label: infertility
+      description: Infertility
+      attribute: impaired_reproductive_capacity
+      aliases:
+      - infertility
+    - label: gout
+      description: Gout
+      attribute: urate_crystal_arthritis
+      aliases:
+      - gout
+    - label: muscular_dystrophy
+      description: Muscular dystrophy
+      attribute: inherited_muscle_degeneration
+      aliases:
+      - muscular dystrophy
+    - label: cystic_fibrosis
+      description: Cystic fibrosis
+      attribute: inherited_epithelial_ion_transport_disorder
+      aliases:
+      - cystic fibrosis
+    - label: meningitis
+      description: Meningitis
+      attribute: meningeal_inflammation
+      aliases:
+      - meningitis
+    - label: iron_deficiency
+      description: Iron deficiency
+      attribute: depleted_body_iron
+      aliases:
+      - iron deficiency
+  financial:
+    intent:
+    - label: amount_calculation
+      description: Determine an amount or aggregate from reported figures.
+      priority: 10
+      aliases:
+      - how much
+      - how many
+      - what was
+      - what were
+      - what is
+      - what are
+      - amount
+      - total
+      - sum
+      - average
+    - label: ratio_percentage
+      description: Determine a ratio, percentage, proportion or margin.
+      priority: 20
+      aliases:
+      - ratio
+      - percentage
+      - percent
+      - proportion
+      - margin
+      - as a fraction
+    - label: change_comparison
+      description: Determine change or compare figures across periods or categories.
+      priority: 30
+      aliases:
+      - change
+      - changed
+      - increase
+      - increased
+      - decrease
+      - decreased
+      - growth
+      - difference
+      - compare
+      - compared
+      - decline
+      - declined
+      - year over year
+    attribute:
+    - label: recognized_business_income
+      description: Recognized business income; the source explicitly discusses revenue.
+      evidence_keywords:
+      - revenue
+    - label: sales_after_returns_and_discounts
+      description: Sales after returns and discounts; the source explicitly discusses net sales.
+      evidence_keywords:
+      - net_sales
+    - label: sales_before_adjustments
+      description: Sales before adjustments; the source explicitly discusses gross sales.
+      evidence_keywords:
+      - gross_sales
+    - label: residual_period_profit
+      description: Residual period profit; the source explicitly discusses net income.
+      evidence_keywords:
+      - net_income
+    - label: core_business_earnings
+      description: Core business earnings; the source explicitly discusses operating income.
+      evidence_keywords:
+      - operating_income
+    - label: sales_less_direct_costs
+      description: Sales less direct costs; the source explicitly discusses gross profit.
+      evidence_keywords:
+      - gross_profit
+    - label: per_share_profitability
+      description: Per share profitability; the source explicitly discusses earnings per share.
+      evidence_keywords:
+      - earnings_per_share
+    - label: earnings_before_financing_tax_and_noncash_charges
+      description: Earnings before financing tax and noncash charges; the source explicitly discusses ebitda.
+      evidence_keywords:
+      - ebitda
+    - label: net_profit_to_revenue_ratio
+      description: Net profit to revenue ratio; the source explicitly discusses profit margin.
+      evidence_keywords:
+      - profit_margin
+    - label: direct_profit_to_revenue_ratio
+      description: Direct profit to revenue ratio; the source explicitly discusses gross margin.
+      evidence_keywords:
+      - gross_margin
+    - label: operating_profit_to_revenue_ratio
+      description: Operating profit to revenue ratio; the source explicitly discusses operating margin.
+      evidence_keywords:
+      - operating_margin
+    - label: direct_goods_and_services_cost
+      description: Direct goods and services cost; the source explicitly discusses cost of sales.
+      evidence_keywords:
+      - cost_of_sales
+    - label: recurrent_business_outlays
+      description: Recurrent business outlays; the source explicitly discusses operating expenses.
+      evidence_keywords:
+      - operating_expenses
+    - label: innovation_spending
+      description: Innovation spending; the source explicitly discusses research and development expenditure.
+      evidence_keywords:
+      - research_development
+    - label: commercial_and_administrative_overhead
+      description: Commercial and administrative overhead; the source explicitly discusses selling general and administrative
+        expenses.
+      evidence_keywords:
+      - selling_general_administrative
+    - label: tangible_asset_cost_allocation
+      description: Tangible asset cost allocation; the source explicitly discusses depreciation.
+      evidence_keywords:
+      - depreciation
+    - label: intangible_asset_cost_allocation
+      description: Intangible asset cost allocation; the source explicitly discusses amortization.
+      evidence_keywords:
+      - amortization
+    - label: borrowing_cost
+      description: Borrowing cost; the source explicitly discusses interest expense.
+      evidence_keywords:
+      - interest_expense
+    - label: tax_on_period_earnings
+      description: Tax on period earnings; the source explicitly discusses income tax.
+      evidence_keywords:
+      - income_tax
+    - label: tax_burden_relative_to_profit
+      description: Tax burden relative to profit; the source explicitly discusses effective tax rate.
+      evidence_keywords:
+      - effective_tax_rate
+    - label: temporary_tax_timing_balance
+      description: Temporary tax timing balance; the source explicitly discusses deferred tax.
+      evidence_keywords:
+      - deferred_tax
+    - label: aggregate_resource_base
+      description: Aggregate resource base; the source explicitly discusses total assets.
+      evidence_keywords:
+      - total_assets
+    - label: near_term_resource_base
+      description: Near term resource base; the source explicitly discusses current assets.
+      evidence_keywords:
+      - current_assets
+    - label: customer_credit_balance
+      description: Customer credit balance; the source explicitly discusses accounts receivable.
+      evidence_keywords:
+      - accounts_receivable
+    - label: goods_held_for_sale
+      description: Goods held for sale; the source explicitly discusses inventory.
+      evidence_keywords:
+      - inventory
+    - label: acquisition_premium
+      description: Acquisition premium; the source explicitly discusses goodwill.
+      evidence_keywords:
+      - goodwill
+    - label: nonphysical_resource_base
+      description: Nonphysical resource base; the source explicitly discusses intangible assets.
+      evidence_keywords:
+      - intangible_assets
+    - label: productive_fixed_asset_base
+      description: Productive fixed asset base; the source explicitly discusses property plant and equipment.
+      evidence_keywords:
+      - property_plant_equipment
+    - label: aggregate_obligation_balance
+      description: Aggregate obligation balance; the source explicitly discusses total liabilities.
+      evidence_keywords:
+      - total_liabilities
+    - label: near_term_obligation_balance
+      description: Near term obligation balance; the source explicitly discusses current liabilities.
+      evidence_keywords:
+      - current_liabilities
+    - label: long_horizon_borrowing
+      description: Long horizon borrowing; the source explicitly discusses long-term debt.
+      evidence_keywords:
+      - long_term_debt
+    - label: near_term_borrowing
+      description: Near term borrowing; the source explicitly discusses short-term debt.
+      evidence_keywords:
+      - short_term_debt
+    - label: supplier_credit_balance
+      description: Supplier credit balance; the source explicitly discusses accounts payable.
+      evidence_keywords:
+      - accounts_payable
+    - label: retirement_benefit_commitment
+      description: Retirement benefit commitment; the source explicitly discusses pension obligation.
+      evidence_keywords:
+      - pension_obligation
+    - label: leased_asset_payment_commitment
+      description: Leased asset payment commitment; the source explicitly discusses lease obligation.
+      evidence_keywords:
+      - lease_obligation
+    - label: residual_owner_interest
+      description: Residual owner interest; the source explicitly discusses shareholders equity.
+      evidence_keywords:
+      - shareholders_equity
+    - label: accumulated_undistributed_profit
+      description: Accumulated undistributed profit; the source explicitly discusses retained earnings.
+      evidence_keywords:
+      - retained_earnings
+    - label: ordinary_share_capital
+      description: Ordinary share capital; the source explicitly discusses common stock.
+      evidence_keywords:
+      - common_stock
+    - label: priority_share_capital
+      description: Priority share capital; the source explicitly discusses preferred stock.
+      evidence_keywords:
+      - preferred_stock
+    - label: shareholder_cash_distribution
+      description: Shareholder cash distribution; the source explicitly discusses dividends.
+      evidence_keywords:
+      - dividend
+    - label: treasury_share_acquisition
+      description: Treasury share acquisition; the source explicitly discusses share repurchases.
+      evidence_keywords:
+      - share_repurchase
+    - label: issued_non_treasury_share_count
+      description: Issued non treasury share count; the source explicitly discusses shares outstanding.
+      evidence_keywords:
+      - shares_outstanding
+    - label: cash_generated_by_operations
+      description: Cash generated by operations; the source explicitly discusses cash flow from operations.
+      evidence_keywords:
+      - operating_cash_flow
+    - label: asset_investment_cash_movements
+      description: Asset investment cash movements; the source explicitly discusses cash flow from investing.
+      evidence_keywords:
+      - investing_cash_flow
+    - label: capital_funding_cash_movements
+      description: Capital funding cash movements; the source explicitly discusses cash flow from financing.
+      evidence_keywords:
+      - financing_cash_flow
+    - label: immediately_liquid_holdings
+      description: Immediately liquid holdings; the source explicitly discusses cash and cash equivalents.
+      evidence_keywords:
+      - cash_equivalents
+    - label: post_investment_cash_generation
+      description: Post investment cash generation; the source explicitly discusses free cash flow.
+      evidence_keywords:
+      - free_cash_flow
+    - label: current_resource_funding_gap
+      description: Current resource funding gap; the source explicitly discusses working capital.
+      evidence_keywords:
+      - working_capital
+    - label: long_lived_asset_spending
+      description: Long lived asset spending; the source explicitly discusses capital expenditures.
+      evidence_keywords:
+      - capital_expenditures
+    - label: business_purchase_consideration
+      description: Business purchase consideration; the source explicitly discusses acquisition cost.
+      evidence_keywords:
+      - acquisition_cost
+    - label: return_from_invested_funds
+      description: Return from invested funds; the source explicitly discusses investment income.
+      evidence_keywords:
+      - investment_income
+    - label: workforce_size
+      description: Workforce size; the source explicitly discusses employee headcount.
+      evidence_keywords:
+      - employees
+    - label: personnel_remuneration
+      description: Personnel remuneration; the source explicitly discusses compensation.
+      evidence_keywords:
+      - compensation
+    - label: equity_linked_remuneration
+      description: Equity linked remuneration; the source explicitly discusses stock-based compensation.
+      evidence_keywords:
+      - stock_compensation
+    - label: relative_currency_conversion_price
+      description: Relative currency conversion price; the source explicitly discusses exchange rate.
+      evidence_keywords:
+      - exchange_rate
+    - label: foreign_operation_translation_effect
+      description: Foreign operation translation effect; the source explicitly discusses foreign currency translation.
+      evidence_keywords:
+      - currency_translation
+    - label: aggregate_equity_market_value
+      description: Aggregate equity market value; the source explicitly discusses market capitalization.
+      evidence_keywords:
+      - market_capitalization
+    - label: per_share_market_value
+      description: Per share market value; the source explicitly discusses share price.
+      evidence_keywords:
+      - share_price
+    - label: accounting_net_asset_value
+      description: Accounting net asset value; the source explicitly discusses book value.
+      evidence_keywords:
+      - book_value
+    - label: market_based_measurement
+      description: Market based measurement; the source explicitly discusses fair value.
+      evidence_keywords:
+      - fair_value
+    keyword:
+    - label: revenue
+      description: Revenue
+      attribute: recognized_business_income
+      aliases:
+      - revenue
+      - revenues
+    - label: net_sales
+      description: Net sales
+      attribute: sales_after_returns_and_discounts
+      aliases:
+      - net sales
+    - label: gross_sales
+      description: Gross sales
+      attribute: sales_before_adjustments
+      aliases:
+      - gross sales
+    - label: net_income
+      description: Net income
+      attribute: residual_period_profit
+      aliases:
+      - net income
+      - net earnings
+    - label: operating_income
+      description: Operating income
+      attribute: core_business_earnings
+      aliases:
+      - operating income
+      - operating profit
+    - label: gross_profit
+      description: Gross profit
+      attribute: sales_less_direct_costs
+      aliases:
+      - gross profit
+    - label: earnings_per_share
+      description: Earnings per share
+      attribute: per_share_profitability
+      aliases:
+      - earnings per share
+      - EPS
+    - label: ebitda
+      description: EBITDA
+      attribute: earnings_before_financing_tax_and_noncash_charges
+      aliases:
+      - EBITDA
+    - label: profit_margin
+      description: Profit margin
+      attribute: net_profit_to_revenue_ratio
+      aliases:
+      - profit margin
+      - net margin
+    - label: gross_margin
+      description: Gross margin
+      attribute: direct_profit_to_revenue_ratio
+      aliases:
+      - gross margin
+    - label: operating_margin
+      description: Operating margin
+      attribute: operating_profit_to_revenue_ratio
+      aliases:
+      - operating margin
+    - label: cost_of_sales
+      description: Cost of sales
+      attribute: direct_goods_and_services_cost
+      aliases:
+      - cost of sales
+      - cost of goods sold
+    - label: operating_expenses
+      description: Operating expenses
+      attribute: recurrent_business_outlays
+      aliases:
+      - operating expenses
+      - operating costs
+    - label: research_development
+      description: Research and development expenditure
+      attribute: innovation_spending
+      aliases:
+      - research and development
+      - R&D
+    - label: selling_general_administrative
+      description: Selling general and administrative expenses
+      attribute: commercial_and_administrative_overhead
+      aliases:
+      - selling general and administrative
+      - selling, general and administrative
+      - SG&A
+    - label: depreciation
+      description: Depreciation
+      attribute: tangible_asset_cost_allocation
+      aliases:
+      - depreciation
+    - label: amortization
+      description: Amortization
+      attribute: intangible_asset_cost_allocation
+      aliases:
+      - amortization
+      - amortisation
+    - label: interest_expense
+      description: Interest expense
+      attribute: borrowing_cost
+      aliases:
+      - interest expense
+      - interest expenses
+    - label: income_tax
+      description: Income tax
+      attribute: tax_on_period_earnings
+      aliases:
+      - income tax
+      - income taxes
+    - label: effective_tax_rate
+      description: Effective tax rate
+      attribute: tax_burden_relative_to_profit
+      aliases:
+      - effective tax rate
+    - label: deferred_tax
+      description: Deferred tax
+      attribute: temporary_tax_timing_balance
+      aliases:
+      - deferred tax
+      - deferred taxes
+    - label: total_assets
+      description: Total assets
+      attribute: aggregate_resource_base
+      aliases:
+      - total assets
+    - label: current_assets
+      description: Current assets
+      attribute: near_term_resource_base
+      aliases:
+      - current assets
+    - label: accounts_receivable
+      description: Accounts receivable
+      attribute: customer_credit_balance
+      aliases:
+      - accounts receivable
+      - receivables
+    - label: inventory
+      description: Inventory
+      attribute: goods_held_for_sale
+      aliases:
+      - inventory
+      - inventories
+    - label: goodwill
+      description: Goodwill
+      attribute: acquisition_premium
+      aliases:
+      - goodwill
+    - label: intangible_assets
+      description: Intangible assets
+      attribute: nonphysical_resource_base
+      aliases:
+      - intangible assets
+    - label: property_plant_equipment
+      description: Property plant and equipment
+      attribute: productive_fixed_asset_base
+      aliases:
+      - property plant and equipment
+      - property, plant and equipment
+    - label: total_liabilities
+      description: Total liabilities
+      attribute: aggregate_obligation_balance
+      aliases:
+      - total liabilities
+    - label: current_liabilities
+      description: Current liabilities
+      attribute: near_term_obligation_balance
+      aliases:
+      - current liabilities
+    - label: long_term_debt
+      description: Long-term debt
+      attribute: long_horizon_borrowing
+      aliases:
+      - long-term debt
+      - long term debt
+    - label: short_term_debt
+      description: Short-term debt
+      attribute: near_term_borrowing
+      aliases:
+      - short-term debt
+      - short term debt
+    - label: accounts_payable
+      description: Accounts payable
+      attribute: supplier_credit_balance
+      aliases:
+      - accounts payable
+      - payables
+    - label: pension_obligation
+      description: Pension obligation
+      attribute: retirement_benefit_commitment
+      aliases:
+      - pension obligation
+      - pension obligations
+    - label: lease_obligation
+      description: Lease obligation
+      attribute: leased_asset_payment_commitment
+      aliases:
+      - lease obligation
+      - lease obligations
+    - label: shareholders_equity
+      description: Shareholders equity
+      attribute: residual_owner_interest
+      aliases:
+      - shareholders' equity
+      - shareholders equity
+      - stockholders' equity
+      - stockholders equity
+    - label: retained_earnings
+      description: Retained earnings
+      attribute: accumulated_undistributed_profit
+      aliases:
+      - retained earnings
+    - label: common_stock
+      description: Common stock
+      attribute: ordinary_share_capital
+      aliases:
+      - common stock
+      - common shares
+    - label: preferred_stock
+      description: Preferred stock
+      attribute: priority_share_capital
+      aliases:
+      - preferred stock
+      - preferred shares
+    - label: dividend
+      description: Dividends
+      attribute: shareholder_cash_distribution
+      aliases:
+      - dividend
+      - dividends
+    - label: share_repurchase
+      description: Share repurchases
+      attribute: treasury_share_acquisition
+      aliases:
+      - share repurchase
+      - share repurchases
+      - stock repurchases
+    - label: shares_outstanding
+      description: Shares outstanding
+      attribute: issued_non_treasury_share_count
+      aliases:
+      - shares outstanding
+    - label: operating_cash_flow
+      description: Cash flow from operations
+      attribute: cash_generated_by_operations
+      aliases:
+      - operating cash flow
+      - cash provided by operating activities
+      - cash flows from operating activities
+    - label: investing_cash_flow
+      description: Cash flow from investing
+      attribute: asset_investment_cash_movements
+      aliases:
+      - investing cash flow
+      - cash used in investing activities
+      - cash flows from investing activities
+    - label: financing_cash_flow
+      description: Cash flow from financing
+      attribute: capital_funding_cash_movements
+      aliases:
+      - financing cash flow
+      - cash flows from financing activities
+    - label: cash_equivalents
+      description: Cash and cash equivalents
+      attribute: immediately_liquid_holdings
+      aliases:
+      - cash and cash equivalents
+      - cash equivalents
+    - label: free_cash_flow
+      description: Free cash flow
+      attribute: post_investment_cash_generation
+      aliases:
+      - free cash flow
+    - label: working_capital
+      description: Working capital
+      attribute: current_resource_funding_gap
+      aliases:
+      - working capital
+    - label: capital_expenditures
+      description: Capital expenditures
+      attribute: long_lived_asset_spending
+      aliases:
+      - capital expenditures
+      - capital expenditure
+      - capex
+    - label: acquisition_cost
+      description: Acquisition cost
+      attribute: business_purchase_consideration
+      aliases:
+      - acquisition cost
+      - acquisition costs
+      - purchase price
+    - label: investment_income
+      description: Investment income
+      attribute: return_from_invested_funds
+      aliases:
+      - investment income
+    - label: employees
+      description: Employee headcount
+      attribute: workforce_size
+      aliases:
+      - employees
+      - employee
+      - headcount
+    - label: compensation
+      description: Compensation
+      attribute: personnel_remuneration
+      aliases:
+      - compensation
+      - salaries
+      - wages
+    - label: stock_compensation
+      description: Stock-based compensation
+      attribute: equity_linked_remuneration
+      aliases:
+      - stock-based compensation
+      - share-based compensation
+    - label: exchange_rate
+      description: Exchange rate
+      attribute: relative_currency_conversion_price
+      aliases:
+      - exchange rate
+      - exchange rates
+    - label: currency_translation
+      description: Foreign currency translation
+      attribute: foreign_operation_translation_effect
+      aliases:
+      - currency translation
+      - foreign currency
+    - label: market_capitalization
+      description: Market capitalization
+      attribute: aggregate_equity_market_value
+      aliases:
+      - market capitalization
+      - market capitalisation
+    - label: share_price
+      description: Share price
+      attribute: per_share_market_value
+      aliases:
+      - share price
+      - stock price
+    - label: book_value
+      description: Book value
+      attribute: accounting_net_asset_value
+      aliases:
+      - book value
+    - label: fair_value
+      description: Fair value
+      attribute: market_based_measurement
+      aliases:
+      - fair value
+  legal:
+    intent:
+    - label: identify_contract_terms
+      description: Identify parties, agreement type, dates or governing terms.
+      priority: 10
+      aliases:
+      - document name
+      - agreement date
+      - effective date
+      - expiration date
+      - governing law
+      - parties
+      - party names
+      - contract type
+      - extract
+      - highlight
+    - label: assess_rights_restrictions
+      description: Identify contractual rights, permissions or restrictions.
+      priority: 30
+      aliases:
+      - rights
+      - right
+      - license
+      - licence
+      - exclusivity
+      - non-compete
+      - non compete
+      - most favored
+      - most favoured
+      - change of control
+      - assignment
+      - transfer
+      - restriction
+      - restrictions
+      - intellectual property
+    - label: assess_obligations_remedies
+      description: Identify performance duties, financial obligations or remedies.
+      priority: 40
+      aliases:
+      - obligation
+      - obligations
+      - payment
+      - termination
+      - renewal
+      - indemnification
+      - indemnity
+      - liability
+      - warranty
+      - insurance
+      - audit
+      - breach
+      - damages
+      - minimum commitment
+      - revenue sharing
+    attribute:
+    - label: agreement_identification
+      description: Agreement identification; the source explicitly discusses document name.
+      evidence_keywords:
+      - document_name
+    - label: contracting_party_identity
+      description: Contracting party identity; the source explicitly discusses contracting parties.
+      evidence_keywords:
+      - parties
+    - label: execution_date
+      description: Execution date; the source explicitly discusses agreement date.
+      evidence_keywords:
+      - agreement_date
+    - label: commencement_of_obligations
+      description: Commencement of obligations; the source explicitly discusses effective date.
+      evidence_keywords:
+      - effective_date
+    - label: scheduled_contract_end
+      description: Scheduled contract end; the source explicitly discusses expiration date.
+      evidence_keywords:
+      - expiration_date
+    - label: continuation_period
+      description: Continuation period; the source explicitly discusses renewal term.
+      evidence_keywords:
+      - renewal_term
+    - label: continuation_notice_requirement
+      description: Continuation notice requirement; the source explicitly discusses notice period for renewal.
+      evidence_keywords:
+      - renewal_notice
+    - label: applicable_legal_regime
+      description: Applicable legal regime; the source explicitly discusses governing law.
+      evidence_keywords:
+      - governing_law
+    - label: private_dispute_resolution
+      description: Private dispute resolution; the source explicitly discusses arbitration.
+      evidence_keywords:
+      - arbitration
+    - label: forum_selection
+      description: Forum selection; the source explicitly discusses jurisdiction.
+      evidence_keywords:
+      - jurisdiction
+    - label: preferential_commercial_treatment
+      description: Preferential commercial treatment; the source explicitly discusses most favored nation provision.
+      evidence_keywords:
+      - most_favored_nation
+    - label: competitive_activity_restriction
+      description: Competitive activity restriction; the source explicitly discusses non-compete provision.
+      evidence_keywords:
+      - non_compete
+    - label: exclusive_commercial_relationship
+      description: Exclusive commercial relationship; the source explicitly discusses exclusivity.
+      evidence_keywords:
+      - exclusivity
+    - label: customer_contact_restriction
+      description: Customer contact restriction; the source explicitly discusses customer non-solicitation.
+      evidence_keywords:
+      - no_solicit_customers
+    - label: employee_recruitment_restriction
+      description: Employee recruitment restriction; the source explicitly discusses employee non-solicitation.
+      evidence_keywords:
+      - no_solicit_employees
+    - label: reputational_conduct_restriction
+      description: Reputational conduct restriction; the source explicitly discusses non-disparagement.
+      evidence_keywords:
+      - non_disparagement
+    - label: competition_covenant_exemption
+      description: Competition covenant exemption; the source explicitly discusses exception to competitive restriction.
+      evidence_keywords:
+      - competitive_restriction_exception
+    - label: ownership_change_consequences
+      description: Ownership change consequences; the source explicitly discusses change of control.
+      evidence_keywords:
+      - change_of_control
+    - label: assignment_consent_requirement
+      description: Assignment consent requirement; the source explicitly discusses anti-assignment.
+      evidence_keywords:
+      - anti_assignment
+    - label: nonparty_enforcement_right
+      description: Nonparty enforcement right; the source explicitly discusses third-party beneficiary.
+      evidence_keywords:
+      - third_party_beneficiary
+    - label: priority_transaction_opportunity
+      description: Priority transaction opportunity; the source explicitly discusses right of first refusal or offer.
+      evidence_keywords:
+      - right_of_first_refusal
+    - label: transfer_of_intellectual_property
+      description: Transfer of intellectual property; the source explicitly discusses intellectual-property ownership
+        assignment.
+      evidence_keywords:
+      - ip_ownership_assignment
+    - label: co_owned_intellectual_property
+      description: Co owned intellectual property; the source explicitly discusses joint intellectual-property ownership.
+      evidence_keywords:
+      - joint_ip_ownership
+    - label: licensed_use_authorization
+      description: Licensed use authorization; the source explicitly discusses license grant.
+      evidence_keywords:
+      - license_grant
+    - label: restriction_on_license_transfer
+      description: Restriction on license transfer; the source explicitly discusses non-transferable license.
+      evidence_keywords:
+      - non_transferable_license
+    - label: licensor_group_license_scope
+      description: Licensor group license scope; the source explicitly discusses affiliate license for the licensor.
+      evidence_keywords:
+      - affiliate_license_licensor
+    - label: licensee_group_license_scope
+      description: Licensee group license scope; the source explicitly discusses affiliate license for the licensee.
+      evidence_keywords:
+      - affiliate_license_licensee
+    - label: unrestricted_usage_entitlement
+      description: Unrestricted usage entitlement; the source explicitly discusses unlimited or all-you-can-eat
+        license.
+      evidence_keywords:
+      - unlimited_license
+    - label: nonrevocable_ongoing_use_right
+      description: Nonrevocable ongoing use right; the source explicitly discusses irrevocable or perpetual license.
+      evidence_keywords:
+      - irrevocable_license
+    - label: contingent_access_to_source_material
+      description: Contingent access to source material; the source explicitly discusses source-code escrow.
+      evidence_keywords:
+      - source_code_escrow
+    - label: commercial_proceeds_allocation
+      description: Commercial proceeds allocation; the source explicitly discusses revenue or profit sharing.
+      evidence_keywords:
+      - revenue_profit_sharing
+    - label: contractual_price_control
+      description: Contractual price control; the source explicitly discusses price restrictions.
+      evidence_keywords:
+      - price_restrictions
+    - label: minimum_performance_commitment
+      description: Minimum performance commitment; the source explicitly discusses minimum commitment.
+      evidence_keywords:
+      - minimum_commitment
+    - label: quantitative_performance_constraint
+      description: Quantitative performance constraint; the source explicitly discusses volume restriction.
+      evidence_keywords:
+      - volume_restriction
+    - label: payment_timing_and_method
+      description: Payment timing and method; the source explicitly discusses payment terms.
+      evidence_keywords:
+      - payment_terms
+    - label: elective_exit_right
+      description: Elective exit right; the source explicitly discusses termination for convenience.
+      evidence_keywords:
+      - termination_convenience
+    - label: breach_based_exit_right
+      description: Breach based exit right; the source explicitly discusses termination for cause.
+      evidence_keywords:
+      - termination_cause
+    - label: transition_assistance_duty
+      description: Transition assistance duty; the source explicitly discusses post-termination services.
+      evidence_keywords:
+      - post_termination_services
+    - label: unlimited_loss_exposure
+      description: Unlimited loss exposure; the source explicitly discusses uncapped liability.
+      evidence_keywords:
+      - uncapped_liability
+    - label: maximum_loss_exposure
+      description: Maximum loss exposure; the source explicitly discusses cap on liability.
+      evidence_keywords:
+      - cap_on_liability
+    - label: predetermined_breach_compensation
+      description: Predetermined breach compensation; the source explicitly discusses liquidated damages.
+      evidence_keywords:
+      - liquidated_damages
+    - label: third_party_loss_allocation
+      description: Third party loss allocation; the source explicitly discusses indemnification.
+      evidence_keywords:
+      - indemnification
+    - label: indirect_loss_exposure
+      description: Indirect loss exposure; the source explicitly discusses consequential damages.
+      evidence_keywords:
+      - consequential_damages
+    - label: financial_risk_coverage
+      description: Financial risk coverage; the source explicitly discusses insurance.
+      evidence_keywords:
+      - insurance
+    - label: confidential_material_handling
+      description: Confidential material handling; the source explicitly discusses confidentiality.
+      evidence_keywords:
+      - confidentiality
+    - label: personal_information_handling
+      description: Personal information handling; the source explicitly discusses data protection.
+      evidence_keywords:
+      - data_protection
+    - label: assurance_coverage_period
+      description: Assurance coverage period; the source explicitly discusses warranty duration.
+      evidence_keywords:
+      - warranty_duration
+    - label: exclusion_of_assurances
+      description: Exclusion of assurances; the source explicitly discusses warranty disclaimer.
+      evidence_keywords:
+      - warranty_disclaimer
+    - label: operational_performance_standard
+      description: Operational performance standard; the source explicitly discusses service level.
+      evidence_keywords:
+      - service_level
+    - label: extraordinary_event_excuse
+      description: Extraordinary event excuse; the source explicitly discusses force majeure.
+      evidence_keywords:
+      - force_majeure
+    - label: inspection_and_verification_right
+      description: Inspection and verification right; the source explicitly discusses audit rights.
+      evidence_keywords:
+      - audit_rights
+    - label: statutory_conformity_duty
+      description: Statutory conformity duty; the source explicitly discusses compliance with law.
+      evidence_keywords:
+      - compliance_with_law
+    - label: partial_invalidity_effect
+      description: Partial invalidity effect; the source explicitly discusses enforceability of remaining clauses.
+      evidence_keywords:
+      - severability
+    - label: integration_of_prior_understandings
+      description: Integration of prior understandings; the source explicitly discusses integration of the complete
+        agreement.
+      evidence_keywords:
+      - entire_agreement
+    - label: agreement_modification_form
+      description: Agreement modification form; the source explicitly discusses formal modification of an agreement.
+      evidence_keywords:
+      - amendment
+    - label: relinquishment_of_enforcement_right
+      description: Relinquishment of enforcement right; the source explicitly discusses relinquishment of contractual
+        rights.
+      evidence_keywords:
+      - waiver
+    - label: formal_communication_procedure
+      description: Formal communication procedure; the source explicitly discusses contractual notice delivery.
+      evidence_keywords:
+      - notice_delivery
+    - label: separate_signature_instruments
+      description: Separate signature instruments; the source explicitly discusses execution in separate counterparts.
+      evidence_keywords:
+      - counterparts
+    - label: post_termination_continuing_effect
+      description: Post termination continuing effect; the source explicitly discusses continuing effect after termination.
+      evidence_keywords:
+      - survival
+    - label: document_priority_rule
+      description: Document priority rule; the source explicitly discusses priority among contract documents.
+      evidence_keywords:
+      - order_of_precedence
+    keyword:
+    - label: document_name
+      description: Document name
+      attribute: agreement_identification
+      aliases:
+      - document name
+    - label: parties
+      description: Contracting parties
+      attribute: contracting_party_identity
+      aliases:
+      - parties
+      - party names
+    - label: agreement_date
+      description: Agreement date
+      attribute: execution_date
+      aliases:
+      - agreement date
+    - label: effective_date
+      description: Effective date
+      attribute: commencement_of_obligations
+      aliases:
+      - effective date
+    - label: expiration_date
+      description: Expiration date
+      attribute: scheduled_contract_end
+      aliases:
+      - expiration date
+      - expiry date
+    - label: renewal_term
+      description: Renewal term
+      attribute: continuation_period
+      aliases:
+      - renewal term
+      - renewal terms
+    - label: renewal_notice
+      description: Notice period for renewal
+      attribute: continuation_notice_requirement
+      aliases:
+      - notice period to terminate renewal
+      - renewal notice
+    - label: governing_law
+      description: Governing law
+      attribute: applicable_legal_regime
+      aliases:
+      - governing law
+    - label: arbitration
+      description: Arbitration
+      attribute: private_dispute_resolution
+      aliases:
+      - arbitration
+    - label: jurisdiction
+      description: Jurisdiction
+      attribute: forum_selection
+      aliases:
+      - jurisdiction
+    - label: most_favored_nation
+      description: Most favored nation provision
+      attribute: preferential_commercial_treatment
+      aliases:
+      - most favored nation
+      - most favoured nation
+    - label: non_compete
+      description: Non-compete provision
+      attribute: competitive_activity_restriction
+      aliases:
+      - non-compete
+      - non compete
+    - label: exclusivity
+      description: Exclusivity
+      attribute: exclusive_commercial_relationship
+      aliases:
+      - exclusivity
+      - exclusive dealing
+    - label: no_solicit_customers
+      description: Customer non-solicitation
+      attribute: customer_contact_restriction
+      aliases:
+      - no-solicit of customers
+      - non-solicitation of customers
+      - customer non-solicitation
+    - label: no_solicit_employees
+      description: Employee non-solicitation
+      attribute: employee_recruitment_restriction
+      aliases:
+      - no-solicit of employees
+      - non-solicitation of employees
+      - employee non-solicitation
+    - label: non_disparagement
+      description: Non-disparagement
+      attribute: reputational_conduct_restriction
+      aliases:
+      - non-disparagement
+      - non disparagement
+    - label: competitive_restriction_exception
+      description: Exception to competitive restriction
+      attribute: competition_covenant_exemption
+      aliases:
+      - competitive restriction exception
+    - label: change_of_control
+      description: Change of control
+      attribute: ownership_change_consequences
+      aliases:
+      - change of control
+    - label: anti_assignment
+      description: Anti-assignment
+      attribute: assignment_consent_requirement
+      aliases:
+      - anti-assignment
+      - anti assignment
+    - label: third_party_beneficiary
+      description: Third-party beneficiary
+      attribute: nonparty_enforcement_right
+      aliases:
+      - third party beneficiary
+      - third-party beneficiary
+    - label: right_of_first_refusal
+      description: Right of first refusal or offer
+      attribute: priority_transaction_opportunity
+      aliases:
+      - right of first refusal
+      - right of first offer
+      - rofr/rofo/rofn
+    - label: ip_ownership_assignment
+      description: Intellectual-property ownership assignment
+      attribute: transfer_of_intellectual_property
+      aliases:
+      - ip ownership assignment
+      - intellectual property ownership
+    - label: joint_ip_ownership
+      description: Joint intellectual-property ownership
+      attribute: co_owned_intellectual_property
+      aliases:
+      - joint ip ownership
+      - joint intellectual property
+    - label: license_grant
+      description: License grant
+      attribute: licensed_use_authorization
+      aliases:
+      - license grant
+      - licence grant
+    - label: non_transferable_license
+      description: Non-transferable license
+      attribute: restriction_on_license_transfer
+      aliases:
+      - non-transferable license
+      - non transferable license
+    - label: affiliate_license_licensor
+      description: Affiliate license for the licensor
+      attribute: licensor_group_license_scope
+      aliases:
+      - affiliate license-licensor
+      - affiliate license licensor
+    - label: affiliate_license_licensee
+      description: Affiliate license for the licensee
+      attribute: licensee_group_license_scope
+      aliases:
+      - affiliate license-licensee
+      - affiliate license licensee
+    - label: unlimited_license
+      description: Unlimited or all-you-can-eat license
+      attribute: unrestricted_usage_entitlement
+      aliases:
+      - unlimited/all-you-can-eat-license
+      - unlimited license
+    - label: irrevocable_license
+      description: Irrevocable or perpetual license
+      attribute: nonrevocable_ongoing_use_right
+      aliases:
+      - irrevocable or perpetual license
+      - irrevocable license
+      - perpetual license
+    - label: source_code_escrow
+      description: Source-code escrow
+      attribute: contingent_access_to_source_material
+      aliases:
+      - source code escrow
+      - source-code escrow
+    - label: revenue_profit_sharing
+      description: Revenue or profit sharing
+      attribute: commercial_proceeds_allocation
+      aliases:
+      - revenue/profit sharing
+      - revenue sharing
+      - profit sharing
+    - label: price_restrictions
+      description: Price restrictions
+      attribute: contractual_price_control
+      aliases:
+      - price restrictions
+      - price restriction
+    - label: minimum_commitment
+      description: Minimum commitment
+      attribute: minimum_performance_commitment
+      aliases:
+      - minimum commitment
+    - label: volume_restriction
+      description: Volume restriction
+      attribute: quantitative_performance_constraint
+      aliases:
+      - volume restriction
+      - volume restrictions
+    - label: payment_terms
+      description: Payment terms
+      attribute: payment_timing_and_method
+      aliases:
+      - payment terms
+      - payment term
+    - label: termination_convenience
+      description: Termination for convenience
+      attribute: elective_exit_right
+      aliases:
+      - termination for convenience
+    - label: termination_cause
+      description: Termination for cause
+      attribute: breach_based_exit_right
+      aliases:
+      - termination for cause
+    - label: post_termination_services
+      description: Post-termination services
+      attribute: transition_assistance_duty
+      aliases:
+      - post-termination services
+      - post termination services
+    - label: uncapped_liability
+      description: Uncapped liability
+      attribute: unlimited_loss_exposure
+      aliases:
+      - uncapped liability
+    - label: cap_on_liability
+      description: Cap on liability
+      attribute: maximum_loss_exposure
+      aliases:
+      - cap on liability
+      - limitation of liability
+      - liability cap
+    - label: liquidated_damages
+      description: Liquidated damages
+      attribute: predetermined_breach_compensation
+      aliases:
+      - liquidated damages
+    - label: indemnification
+      description: Indemnification
+      attribute: third_party_loss_allocation
+      aliases:
+      - indemnification
+      - indemnity
+    - label: consequential_damages
+      description: Consequential damages
+      attribute: indirect_loss_exposure
+      aliases:
+      - consequential damages
+    - label: insurance
+      description: Insurance
+      attribute: financial_risk_coverage
+      aliases:
+      - insurance
+    - label: confidentiality
+      description: Confidentiality
+      attribute: confidential_material_handling
+      aliases:
+      - confidentiality
+      - confidential information
+    - label: data_protection
+      description: Data protection
+      attribute: personal_information_handling
+      aliases:
+      - data protection
+      - personal data
+      - comply with all applicable data protection and privacy laws
+    - label: warranty_duration
+      description: Warranty duration
+      attribute: assurance_coverage_period
+      aliases:
+      - warranty duration
+    - label: warranty_disclaimer
+      description: Warranty disclaimer
+      attribute: exclusion_of_assurances
+      aliases:
+      - warranty disclaimer
+      - disclaimer of warranties
+    - label: service_level
+      description: Service level
+      attribute: operational_performance_standard
+      aliases:
+      - service level
+      - service levels
+    - label: force_majeure
+      description: Force majeure
+      attribute: extraordinary_event_excuse
+      aliases:
+      - force majeure
+    - label: audit_rights
+      description: Audit rights
+      attribute: inspection_and_verification_right
+      aliases:
+      - audit rights
+      - audit right
+    - label: compliance_with_law
+      description: Compliance with law
+      attribute: statutory_conformity_duty
+      aliases:
+      - compliance with law
+      - compliance with laws
+    - label: severability
+      description: Enforceability of remaining clauses
+      attribute: partial_invalidity_effect
+      aliases:
+      - severability
+      - severable
+      - SEVERABILITY Any provision or part of this Agreement prohibited by applicable law
+    - label: entire_agreement
+      description: Integration of the complete agreement
+      attribute: integration_of_prior_understandings
+      aliases:
+      - entire agreement
+      - integration clause
+    - label: amendment
+      description: Formal modification of an agreement
+      attribute: agreement_modification_form
+      aliases:
+      - amendment
+      - amendments
+      - amended in writing
+    - label: waiver
+      description: Relinquishment of contractual rights
+      attribute: relinquishment_of_enforcement_right
+      aliases:
+      - waiver
+      - waivers
+      - No waiver of any provision of this Agreement or any rights or obligations
+    - label: notice_delivery
+      description: Contractual notice delivery
+      attribute: formal_communication_procedure
+      aliases:
+      - notice delivery
+      - notices shall
+      - notice shall
+      - All notices shall be deemed to have been given on receipt as verified by written or automated receipt
+    - label: counterparts
+      description: Execution in separate counterparts
+      attribute: separate_signature_instruments
+      aliases:
+      - counterparts
+      - counterpart
+    - label: survival
+      description: Continuing effect after termination
+      attribute: post_termination_continuing_effect
+      aliases:
+      - survival
+      - survive termination
+    - label: order_of_precedence
+      description: Priority among contract documents
+      attribute: document_priority_rule
+      aliases:
+      - order of precedence
+      - order of priority
+  code:
+    intent:
+    - label: retrieve_inspect
+      description: Retrieve a value or inspect an existing object.
+      priority: 10
+      aliases:
+      - get
+      - gets
+      - return
+      - returns
+      - read
+      - reads
+      - load
+      - loads
+      - find
+      - finds
+      - fetch
+      - fetches
+      - obtain
+      - obtains
+      - retrieve
+      - retrieves
+      - lookup
+      - look up
+    - label: modify_transform
+      description: Create, change, persist or transform data.
+      priority: 20
+      aliases:
+      - set
+      - sets
+      - add
+      - adds
+      - remove
+      - removes
+      - delete
+      - deletes
+      - write
+      - writes
+      - update
+      - updates
+      - convert
+      - converts
+      - create
+      - creates
+      - append
+      - appends
+      - sort
+      - sorts
+      - copy
+      - copies
+      - parse
+      - parses
+      - encode
+      - decode
+      - serialize
+      - deserialize
+      - replace
+      - clear
+      - save
+      - build
+      - insert
+      - initialize
+    - label: validate_control
+      description: Validate data, compare values or enforce a control condition.
+      priority: 30
+      aliases:
+      - check
+      - checks
+      - validate
+      - validates
+      - verify
+      - verifies
+      - compare
+      - compares
+      - contains
+      - equals
+      - empty
+      - assert
+      - throw
+      - throws
+      - ensure
+      - test
+      - tests
+      - matches
+    attribute:
+    - label: immutable_text_handling
+      description: Immutable text handling; the source explicitly discusses string values.
+      evidence_keywords:
+      - string
+    - label: mutable_text_accumulation
+      description: Mutable text accumulation; the source explicitly discusses stringbuilder.
+      evidence_keywords:
+      - string_builder
+    - label: pattern_based_text_matching
+      description: Pattern based text matching; the source explicitly discusses regular expressions.
+      evidence_keywords:
+      - regular_expression
+    - label: character_unit_processing
+      description: Character unit processing; the source explicitly discusses character values.
+      evidence_keywords:
+      - character
+    - label: contiguous_text_extraction
+      description: Contiguous text extraction; the source explicitly discusses substring operation.
+      evidence_keywords:
+      - substring
+    - label: indexed_sequence_handling
+      description: Indexed sequence handling; the source explicitly discusses arrays.
+      evidence_keywords:
+      - array
+    - label: resizable_array_collection
+      description: Resizable array collection; the source explicitly discusses arraylist.
+      evidence_keywords:
+      - array_list
+    - label: node_linked_collection
+      description: Node linked collection; the source explicitly discusses linkedlist.
+      evidence_keywords:
+      - linked_list
+    - label: hashed_key_value_storage
+      description: Hashed key value storage; the source explicitly discusses hashmap.
+      evidence_keywords:
+      - hash_map
+    - label: hashed_unique_element_storage
+      description: Hashed unique element storage; the source explicitly discusses hashset.
+      evidence_keywords:
+      - hash_set
+    - label: sequential_collection_traversal
+      description: Sequential collection traversal; the source explicitly discusses iterators.
+      evidence_keywords:
+      - iterator
+    - label: first_in_first_out_processing
+      description: First in first out processing; the source explicitly discusses queues.
+      evidence_keywords:
+      - queue
+    - label: last_in_first_out_processing
+      description: Last in first out processing; the source explicitly discusses stacks.
+      evidence_keywords:
+      - stack
+    - label: ordered_collection_operations
+      description: Ordered collection operations; the source explicitly discusses lists.
+      evidence_keywords:
+      - list
+    - label: key_value_association
+      description: Key value association; the source explicitly discusses maps.
+      evidence_keywords:
+      - map
+    - label: associative_lookup
+      description: Associative lookup; the source explicitly discusses dictionaries.
+      evidence_keywords:
+      - dictionary
+    - label: whole_number_arithmetic
+      description: Whole number arithmetic; the source explicitly discusses integer values.
+      evidence_keywords:
+      - integer
+    - label: approximate_real_arithmetic
+      description: Approximate real arithmetic; the source explicitly discusses floating-point values.
+      evidence_keywords:
+      - floating_point
+    - label: arbitrary_precision_decimal_arithmetic
+      description: Arbitrary precision decimal arithmetic; the source explicitly discusses bigdecimal.
+      evidence_keywords:
+      - big_decimal
+    - label: pseudorandom_sampling
+      description: Pseudorandom sampling; the source explicitly discusses random number generation.
+      evidence_keywords:
+      - random_number
+    - label: multidimensional_numeric_processing
+      description: Multidimensional numeric processing; the source explicitly discusses matrices.
+      evidence_keywords:
+      - matrix
+    - label: file_resource_handling
+      description: File resource handling; the source explicitly discusses file objects.
+      evidence_keywords:
+      - file
+    - label: filesystem_container_handling
+      description: Filesystem container handling; the source explicitly discusses directories.
+      evidence_keywords:
+      - directory
+    - label: filesystem_location_resolution
+      description: Filesystem location resolution; the source explicitly discusses filesystem paths.
+      evidence_keywords:
+      - file_path
+    - label: byte_source_consumption
+      description: Byte source consumption; the source explicitly discusses inputstream.
+      evidence_keywords:
+      - input_stream
+    - label: byte_sink_production
+      description: Byte sink production; the source explicitly discusses outputstream.
+      evidence_keywords:
+      - output_stream
+    - label: buffered_text_input
+      description: Buffered text input; the source explicitly discusses bufferedreader.
+      evidence_keywords:
+      - buffered_reader
+    - label: in_memory_binary_buffer_management
+      description: In memory binary buffer management; the source explicitly discusses bytebuffer.
+      evidence_keywords:
+      - byte_buffer
+    - label: bidirectional_network_endpoint
+      description: Bidirectional network endpoint; the source explicitly discusses sockets.
+      evidence_keywords:
+      - socket
+    - label: resource_locator_processing
+      description: Resource locator processing; the source explicitly discusses urls.
+      evidence_keywords:
+      - url
+    - label: resource_identifier_processing
+      description: Resource identifier processing; the source explicitly discusses uris.
+      evidence_keywords:
+      - uri
+    - label: inbound_protocol_message_handling
+      description: Inbound protocol message handling; the source explicitly discusses http requests.
+      evidence_keywords:
+      - http_request
+    - label: outbound_protocol_message_handling
+      description: Outbound protocol message handling; the source explicitly discusses http responses.
+      evidence_keywords:
+      - http_response
+    - label: structured_json_serialization
+      description: Structured json serialization; the source explicitly discusses json data.
+      evidence_keywords:
+      - json
+    - label: structured_markup_processing
+      description: Structured markup processing; the source explicitly discusses xml data.
+      evidence_keywords:
+      - xml
+    - label: delimited_tabular_serialization
+      description: Delimited tabular serialization; the source explicitly discusses csv data.
+      evidence_keywords:
+      - csv
+    - label: binary_to_text_encoding
+      description: Binary to text encoding; the source explicitly discusses base64 encoding.
+      evidence_keywords:
+      - base64
+    - label: calendar_date_handling
+      description: Calendar date handling; the source explicitly discusses dates.
+      evidence_keywords:
+      - date
+    - label: absolute_time_point_handling
+      description: Absolute time point handling; the source explicitly discusses timestamps.
+      evidence_keywords:
+      - timestamp
+    - label: calendar_field_manipulation
+      description: Calendar field manipulation; the source explicitly discusses calendar objects.
+      evidence_keywords:
+      - calendar
+    - label: elapsed_time_quantity_handling
+      description: Elapsed time quantity handling; the source explicitly discusses durations.
+      evidence_keywords:
+      - duration
+    - label: execution_thread_management
+      description: Execution thread management; the source explicitly discusses threads.
+      evidence_keywords:
+      - thread
+    - label: work_scheduling_management
+      description: Work scheduling management; the source explicitly discusses executor services.
+      evidence_keywords:
+      - executor
+    - label: asynchronous_result_management
+      description: Asynchronous result management; the source explicitly discusses futures.
+      evidence_keywords:
+      - future
+    - label: mutual_exclusion_management
+      description: Mutual exclusion management; the source explicitly discusses locks.
+      evidence_keywords:
+      - lock
+    - label: bounded_permit_coordination
+      description: Bounded permit coordination; the source explicitly discusses semaphores.
+      evidence_keywords:
+      - semaphore
+    - label: atomic_counter_updates
+      description: Atomic counter updates; the source explicitly discusses atomicinteger.
+      evidence_keywords:
+      - atomic_integer
+    - label: relational_query_execution
+      description: Relational query execution; the source explicitly discusses sql statements.
+      evidence_keywords:
+      - sql
+    - label: tabular_query_result_processing
+      description: Tabular query result processing; the source explicitly discusses resultset.
+      evidence_keywords:
+      - result_set
+    - label: parameterized_query_execution
+      description: Parameterized query execution; the source explicitly discusses preparedstatement.
+      evidence_keywords:
+      - prepared_statement
+    - label: transactional_state_management
+      description: Transactional state management; the source explicitly discusses database transactions.
+      evidence_keywords:
+      - transaction
+    - label: exceptional_control_flow
+      description: Exceptional control flow; the source explicitly discusses exceptions.
+      evidence_keywords:
+      - exception
+    - label: input_output_failure_handling
+      description: Input output failure handling; the source explicitly discusses ioexception.
+      evidence_keywords:
+      - io_exception
+    - label: invalid_input_rejection
+      description: Invalid input rejection; the source explicitly discusses illegalargumentexception.
+      evidence_keywords:
+      - illegal_argument
+    - label: runtime_type_metadata
+      description: Runtime type metadata; the source explicitly discusses class objects.
+      evidence_keywords:
+      - class_object
+    - label: dynamic_method_access
+      description: Dynamic method access; the source explicitly discusses reflected methods.
+      evidence_keywords:
+      - reflection_method
+    - label: globally_unique_identifier_handling
+      description: Globally unique identifier handling; the source explicitly discusses uuid identifiers.
+      evidence_keywords:
+      - uuid
+    - label: one_way_digest_computation
+      description: One way digest computation; the source explicitly discusses message digests.
+      evidence_keywords:
+      - message_digest
+    - label: reversible_cryptographic_transformation
+      description: Reversible cryptographic transformation; the source explicitly discusses ciphers.
+      evidence_keywords:
+      - cipher
+    - label: authentication_secret_handling
+      description: Authentication secret handling; the source explicitly discusses password values.
+      evidence_keywords:
+      - password
+    keyword:
+    - label: string
+      description: String values
+      attribute: immutable_text_handling
+      aliases:
+      - String
+      - strings
+    - label: string_builder
+      description: StringBuilder
+      attribute: mutable_text_accumulation
+      aliases:
+      - StringBuilder
+      - string builder
+    - label: regular_expression
+      description: Regular expressions
+      attribute: pattern_based_text_matching
+      aliases:
+      - regex
+      - regexp
+      - regular expression
+      - Pattern
+    - label: character
+      description: Character values
+      attribute: character_unit_processing
+      aliases:
+      - char
+      - character
+      - characters
+    - label: substring
+      description: Substring operation
+      attribute: contiguous_text_extraction
+      aliases:
+      - substring
+      - substr
+    - label: array
+      description: Arrays
+      attribute: indexed_sequence_handling
+      aliases:
+      - array
+      - arrays
+    - label: array_list
+      description: ArrayList
+      attribute: resizable_array_collection
+      aliases:
+      - ArrayList
+      - array list
+    - label: linked_list
+      description: LinkedList
+      attribute: node_linked_collection
+      aliases:
+      - LinkedList
+      - linked list
+    - label: hash_map
+      description: HashMap
+      attribute: hashed_key_value_storage
+      aliases:
+      - HashMap
+      - hash map
+    - label: hash_set
+      description: HashSet
+      attribute: hashed_unique_element_storage
+      aliases:
+      - HashSet
+      - hash set
+    - label: iterator
+      description: Iterators
+      attribute: sequential_collection_traversal
+      aliases:
+      - Iterator
+      - iterators
+    - label: queue
+      description: Queues
+      attribute: first_in_first_out_processing
+      aliases:
+      - Queue
+      - queues
+    - label: stack
+      description: Stacks
+      attribute: last_in_first_out_processing
+      aliases:
+      - Stack
+      - stacks
+    - label: list
+      description: Lists
+      attribute: ordered_collection_operations
+      aliases:
+      - List
+      - lists
+    - label: map
+      description: Maps
+      attribute: key_value_association
+      aliases:
+      - Map
+      - maps
+    - label: dictionary
+      description: Dictionaries
+      attribute: associative_lookup
+      aliases:
+      - dictionary
+      - dictionaries
+      - dict
+    - label: integer
+      description: Integer values
+      attribute: whole_number_arithmetic
+      aliases:
+      - integer
+      - integers
+      - int
+    - label: floating_point
+      description: Floating-point values
+      attribute: approximate_real_arithmetic
+      aliases:
+      - float
+      - double
+      - floating point
+      - floating-point
+    - label: big_decimal
+      description: BigDecimal
+      attribute: arbitrary_precision_decimal_arithmetic
+      aliases:
+      - BigDecimal
+    - label: random_number
+      description: Random number generation
+      attribute: pseudorandom_sampling
+      aliases:
+      - Random
+      - random number
+    - label: matrix
+      description: Matrices
+      attribute: multidimensional_numeric_processing
+      aliases:
+      - matrix
+      - matrices
+    - label: file
+      description: File objects
+      attribute: file_resource_handling
+      aliases:
+      - File
+      - files
+    - label: directory
+      description: Directories
+      attribute: filesystem_container_handling
+      aliases:
+      - directory
+      - directories
+      - folder
+      - folders
+    - label: file_path
+      description: Filesystem paths
+      attribute: filesystem_location_resolution
+      aliases:
+      - path
+      - paths
+    - label: input_stream
+      description: InputStream
+      attribute: byte_source_consumption
+      aliases:
+      - InputStream
+      - input stream
+    - label: output_stream
+      description: OutputStream
+      attribute: byte_sink_production
+      aliases:
+      - OutputStream
+      - output stream
+    - label: buffered_reader
+      description: BufferedReader
+      attribute: buffered_text_input
+      aliases:
+      - BufferedReader
+      - buffered reader
+    - label: byte_buffer
+      description: ByteBuffer
+      attribute: in_memory_binary_buffer_management
+      aliases:
+      - ByteBuffer
+      - byte buffer
+    - label: socket
+      description: Sockets
+      attribute: bidirectional_network_endpoint
+      aliases:
+      - Socket
+      - sockets
+    - label: url
+      description: URLs
+      attribute: resource_locator_processing
+      aliases:
+      - URL
+      - URLs
+    - label: uri
+      description: URIs
+      attribute: resource_identifier_processing
+      aliases:
+      - URI
+      - URIs
+    - label: http_request
+      description: HTTP requests
+      attribute: inbound_protocol_message_handling
+      aliases:
+      - HTTP request
+      - HttpRequest
+      - HttpServletRequest
+    - label: http_response
+      description: HTTP responses
+      attribute: outbound_protocol_message_handling
+      aliases:
+      - HTTP response
+      - HttpResponse
+      - HttpServletResponse
+    - label: json
+      description: JSON data
+      attribute: structured_json_serialization
+      aliases:
+      - JSON
+      - JSONObject
+      - JSONArray
+    - label: xml
+      description: XML data
+      attribute: structured_markup_processing
+      aliases:
+      - XML
+    - label: csv
+      description: CSV data
+      attribute: delimited_tabular_serialization
+      aliases:
+      - CSV
+    - label: base64
+      description: Base64 encoding
+      attribute: binary_to_text_encoding
+      aliases:
+      - Base64
+      - base-64
+    - label: date
+      description: Dates
+      attribute: calendar_date_handling
+      aliases:
+      - Date
+      - dates
+      - LocalDate
+    - label: timestamp
+      description: Timestamps
+      attribute: absolute_time_point_handling
+      aliases:
+      - Timestamp
+      - timestamps
+    - label: calendar
+      description: Calendar objects
+      attribute: calendar_field_manipulation
+      aliases:
+      - Calendar
+    - label: duration
+      description: Durations
+      attribute: elapsed_time_quantity_handling
+      aliases:
+      - Duration
+      - durations
+    - label: thread
+      description: Threads
+      attribute: execution_thread_management
+      aliases:
+      - Thread
+      - threads
+    - label: executor
+      description: Executor services
+      attribute: work_scheduling_management
+      aliases:
+      - Executor
+      - ExecutorService
+    - label: future
+      description: Futures
+      attribute: asynchronous_result_management
+      aliases:
+      - Future
+      - CompletableFuture
+    - label: lock
+      description: Locks
+      attribute: mutual_exclusion_management
+      aliases:
+      - Lock
+      - ReentrantLock
+      - mutex
+    - label: semaphore
+      description: Semaphores
+      attribute: bounded_permit_coordination
+      aliases:
+      - Semaphore
+    - label: atomic_integer
+      description: AtomicInteger
+      attribute: atomic_counter_updates
+      aliases:
+      - AtomicInteger
+    - label: sql
+      description: SQL statements
+      attribute: relational_query_execution
+      aliases:
+      - SQL
+    - label: result_set
+      description: ResultSet
+      attribute: tabular_query_result_processing
+      aliases:
+      - ResultSet
+      - result set
+    - label: prepared_statement
+      description: PreparedStatement
+      attribute: parameterized_query_execution
+      aliases:
+      - PreparedStatement
+      - prepared statement
+    - label: transaction
+      description: Database transactions
+      attribute: transactional_state_management
+      aliases:
+      - transaction
+      - transactions
+    - label: exception
+      description: Exceptions
+      attribute: exceptional_control_flow
+      aliases:
+      - Exception
+      - exceptions
+    - label: io_exception
+      description: IOException
+      attribute: input_output_failure_handling
+      aliases:
+      - IOException
+    - label: illegal_argument
+      description: IllegalArgumentException
+      attribute: invalid_input_rejection
+      aliases:
+      - IllegalArgumentException
+    - label: class_object
+      description: Class objects
+      attribute: runtime_type_metadata
+      aliases:
+      - Class
+      - classes
+    - label: reflection_method
+      description: Reflected methods
+      attribute: dynamic_method_access
+      aliases:
+      - Method
+      - methods
+    - label: uuid
+      description: UUID identifiers
+      attribute: globally_unique_identifier_handling
+      aliases:
+      - UUID
+      - UUIDs
+    - label: message_digest
+      description: Message digests
+      attribute: one_way_digest_computation
+      aliases:
+      - MessageDigest
+      - message digest
+      - SHA256
+      - SHA-256
+    - label: cipher
+      description: Ciphers
+      attribute: reversible_cryptographic_transformation
+      aliases:
+      - Cipher
+      - AES
+    - label: password
+      description: Password values
+      attribute: authentication_secret_handling
+      aliases:
+      - password
+      - passwords

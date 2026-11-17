@@ -1,0 +1,9 @@
+torch==2.5.0
+transformers==4.45.2
+accelerate==1.0.1
+sentencepiece==0.2.0
+ninja>=1.11,<2
+cmake>=3.26.4,<4
+packaging>=23
+flash-attn==2.6.3
+

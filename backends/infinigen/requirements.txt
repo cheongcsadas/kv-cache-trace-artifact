@@ -1,0 +1,5 @@
+torch==2.5.1
+transformers==4.57.1
+accelerate>=1.2,<2
+sentencepiece==0.2.0
+ninja>=1.11,<2

@@ -1,0 +1,45 @@
+schema_version: 1
+datasets:
+  medquad:
+    domain: medical
+    repository: https://github.com/abachaa/MedQuAD
+    revision: 577bd37b96c02d1833b2c9eed2de9f96964e96cb
+    license: CC-BY-4.0
+    archive: https://codeload.github.com/abachaa/MedQuAD/zip/577bd37b96c02d1833b2c9eed2de9f96964e96cb
+    inputs: ['**/*.xml']
+  finqa:
+    domain: financial
+    repository: https://github.com/czyssrs/FinQA
+    revision: 0f16e2867befa6840783e58be38c9efb9229d742
+    license: See upstream dataset terms and repository LICENSE
+    files:
+      - {path: dataset/train.json, git_blob: a6c2c5a60f9abe3fba5a793cc4d9e1dee2e09209}
+      - {path: dataset/dev.json, git_blob: 970f239f591c782b17df420c0d343b780737f3da}
+      - {path: dataset/test.json, git_blob: 59958c7c3bb3b21f4dff6bc912a0fe0ae710aee0}
+      - {path: LICENSE, git_blob: fb3b513238ba5ec7e0799cb1190ff30c759a5bdf}
+    inputs: [dataset/train.json, dataset/dev.json, dataset/test.json]
+  cuad:
+    domain: legal
+    repository: https://github.com/The-Atticus-Project/cuad
+    revision: 67faa0e6023b04fcaae6cc09497ab00e5d63a2a2
+    license: CC-BY-4.0
+    files:
+      - {path: data.zip, git_blob: 1ae94ff0a9b70b2e3b9b8d215737c8bfae460ddc}
+      - {path: readme.md, git_blob: 9bf340464a35127a5cdecefb9e1dc87e1c835e8a}
+    extract: [data.zip]
+    inputs: ['**/CUADv1.json', '**/train.json', '**/test.json']
+  codexglue:
+    domain: code
+    repository: https://github.com/microsoft/CodeXGLUE
+    revision: ac74a62802a0dd159b3258c78a2df8ad36cdf2b9
+    subset: Text-Code/text-to-code CONCODE
+    license: C-UDA plus original-item licenses; retain upstream LICENSE
+    files:
+      - {path: Text-Code/text-to-code/dataset/concode/train.json, git_blob: 5876a94c6601c9ac0efa465d619cff9fb02724ea}
+      - {path: Text-Code/text-to-code/dataset/concode/dev.json, git_blob: 6a10a602efa7dc28fa23d253dbc4812dbe744df3}
+      - {path: Text-Code/text-to-code/dataset/concode/test.json, git_blob: a85678f09ed20dd1ab0ef395384ad10a83c5577a}
+      - {path: LICENSE, git_blob: 9e841e7a26e4eb057b24511e7b92d42b257a80e5}
+    inputs:
+      - Text-Code/text-to-code/dataset/concode/train.json
+      - Text-Code/text-to-code/dataset/concode/dev.json
+      - Text-Code/text-to-code/dataset/concode/test.json
