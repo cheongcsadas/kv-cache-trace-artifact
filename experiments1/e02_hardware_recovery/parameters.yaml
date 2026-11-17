@@ -1,0 +1,17 @@
+experiment: e02_hardware_recovery
+paper_section: 5.2.2
+systems:
+- quest
+- infinigen
+- retrievalattention
+activities:
+- HIT
+- LOAD
+- EVICT
+auxiliary_unique_source_records: 1000
+reference_merge_gap_ms: 50
+window_ms: 10
+max_windows: 512
+random_forest:
+  n_estimators: 100
+  max_depth: 10

@@ -1,0 +1,22 @@
+experiment: e03_attribute_inference
+paper_section: 5.3.1
+systems:
+- quest
+- infinigen
+- retrievalattention
+attacks:
+- MAA
+- SAA
+settings:
+- templated_short
+- templated_long
+- unstructured_short
+- unstructured_long
+- cross_template
+train_per_domain: 3000
+test_per_domain: 1000
+window_ms: 10
+max_windows: 512
+random_forest:
+  n_estimators: 100
+  max_depth: 10

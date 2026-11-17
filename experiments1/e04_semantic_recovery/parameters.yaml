@@ -1,0 +1,20 @@
+experiment: e04_semantic_recovery
+paper_section: 5.3.2
+systems:
+- quest
+attacks:
+- MSA
+- SSA
+settings:
+- templated_short
+train_per_domain: 3000
+test_per_domain: 1000
+semantic_classes:
+  intent: 3
+  attribute: 60
+  keyword: 60
+window_ms: 10
+max_windows: 512
+random_forest:
+  n_estimators: 100
+  max_depth: 10

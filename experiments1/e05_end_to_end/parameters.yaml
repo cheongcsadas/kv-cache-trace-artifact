@@ -1,0 +1,31 @@
+experiment: e05_end_to_end
+paper_section: 5.3.3
+train_per_domain: 3000
+test_per_domain: 1000
+localization_failures_in_denominator: true
+window_ms: 10
+max_windows: 512
+random_forest:
+  n_estimators: 100
+  max_depth: 10
+condition_groups:
+- systems:
+  - quest
+  - infinigen
+  - retrievalattention
+  attacks:
+  - MAA
+  - SAA
+  settings:
+  - templated_short
+  - templated_long
+  - unstructured_short
+  - unstructured_long
+  - cross_template
+- systems:
+  - quest
+  attacks:
+  - MSA
+  - SSA
+  settings:
+  - templated_short

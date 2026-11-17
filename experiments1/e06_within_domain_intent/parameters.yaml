@@ -1,0 +1,15 @@
+experiment: e06_within_domain_intent
+paper_section: 5.3.3
+systems:
+- quest
+domains:
+- medical
+- financial
+- legal
+- code
+intent_labels_per_run: 2
+window_ms: 10
+max_windows: 512
+random_forest:
+  n_estimators: 100
+  max_depth: 10
