@@ -1,0 +1,4 @@
+# Install a CUDA-compatible torch build in each backend's isolated environment.
+torch>=2.2
+ninja>=1.11
+# Tokenizer dependencies are installed by requirements.txt; each backend pins its model runtime.
