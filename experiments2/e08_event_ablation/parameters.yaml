@@ -1,0 +1,26 @@
+experiment: e08_event_ablation
+paper_section: '5.4'
+systems:
+- quest
+- infinigen
+- retrievalattention
+attacks:
+- MAA
+- MSA
+- SAA
+- SSA
+settings:
+- templated_short
+ablations:
+- full
+- remove_load
+- remove_hit
+- remove_evict
+- remove_all
+train_per_domain: 3000
+test_per_domain: 1000
+window_ms: 10
+max_windows: 512
+random_forest:
+  n_estimators: 100
+  max_depth: 10

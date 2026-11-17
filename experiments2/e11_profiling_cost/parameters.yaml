@@ -1,0 +1,17 @@
+experiment: e11_profiling_cost
+paper_section: '5.6'
+systems:
+- quest
+- infinigen
+- retrievalattention
+channels:
+- meta
+- hw
+auxiliary_per_domain: 3000
+auxiliary_total: 12000
+timing_scope: observation_collection
+window_ms: 10
+max_windows: 512
+random_forest:
+  n_estimators: 100
+  max_depth: 10

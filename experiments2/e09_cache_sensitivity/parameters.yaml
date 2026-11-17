@@ -1,0 +1,30 @@
+experiment: e09_cache_sensitivity
+paper_section: 5.5.1
+systems:
+- quest
+- infinigen
+- retrievalattention
+attacks:
+- MAA
+factors:
+  residency_fraction:
+  - 0.2
+  - 0.4
+  - 0.6
+  block_tokens:
+  - 8
+  - 16
+  - 32
+  context_tokens:
+  - 1000
+  - 2000
+  - 3000
+  - 4000
+train_per_domain: 3000
+test_per_domain: 1000
+fixed_selected_token_budget_for_block_sweep: true
+window_ms: 10
+max_windows: 512
+random_forest:
+  n_estimators: 100
+  max_depth: 10

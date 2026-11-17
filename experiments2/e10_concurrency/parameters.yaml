@@ -1,0 +1,26 @@
+experiment: e10_concurrency
+paper_section: 5.5.2
+systems:
+- quest
+- infinigen
+- retrievalattention
+attacks:
+- MAA
+- MSA
+- SAA
+- SSA
+settings:
+- templated_short
+concurrent_workloads:
+- 1
+- 4
+- 8
+- 16
+arrival_mode: asynchronous
+train_per_domain: 3000
+test_per_domain: 1000
+window_ms: 10
+max_windows: 512
+random_forest:
+  n_estimators: 100
+  max_depth: 10
